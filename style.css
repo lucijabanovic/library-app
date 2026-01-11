@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui;
+}
+
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 50px;
+}
+
+img#logo {
+    height: 40px;
+}
+
+#add {
+    cursor: pointer;
+    border: 2px solid #010100;
+    color: #010100;
+    border-radius: 25px;
+    height: fit-content;
+    display: flex;
+    gap: 5px;
+    padding: 10px 15px;
+    align-items: center;
+    font-size: 18px;
+    transition: all .15s ease-in-out;
+}
+
+#add svg#plus {
+    height: 22px;
+}
+
+#add svg#plus path {
+    transition: all .15s ease-in-out;
+}
+
+#add:hover {
+    color: #f38c28;
+    border-color: #f38c28;
+    box-shadow: 0 2px 7px #f38e287d;
+    transform: translateY(-2px);
+}
+
+#add:hover #plus path {
+    fill: #f38c28;
+}
