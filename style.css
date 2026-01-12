@@ -4,15 +4,23 @@
     font-family: system-ui;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 400px;
+}
+
 #nav {
     display: flex;
     align-items: center;
+    width: 100%;
     justify-content: space-between;
-    padding: 40px 50px;
+    padding: 40px;
 }
 
 img#logo {
-    height: 40px;
+    height: 30px;
 }
 
 #add {
@@ -25,8 +33,12 @@ img#logo {
     gap: 5px;
     padding: 10px 15px;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
     transition: all .15s ease-in-out;
+}
+
+#add.clicked {
+    transform: scale(0.95);
 }
 
 #add svg#plus {
@@ -41,9 +53,169 @@ img#logo {
     color: #f38c28;
     border-color: #f38c28;
     box-shadow: 0 2px 7px #f38e287d;
-    transform: translateY(-2px);
 }
 
 #add:hover #plus path {
     fill: #f38c28;
 }
+
+#dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(8px);
+    position: absolute;
+    height: 340px;
+    width: 300px;
+    background-color: white;
+    left: 50vw;
+    top: 110px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #c5c5c5;
+    pointer-events: none;
+    transition: all .2s ease-in-out;
+    padding: 25px;
+    z-index: 1;
+}
+
+#dialog h1 {
+    font-size: 17px;
+    font-weight: 400;
+    color: #3e3e3e;
+}
+
+#dialog input:not([type="checkbox"]) {
+    outline: none;
+    height: 35px;
+    width: 95%;
+    padding-left: 10px;
+    border-radius: 7px;
+    border: 1px solid #dddddd;
+    box-shadow: 0 1px 5px #ededed;
+    transition: all .2s ease-in-out;
+    font-size: 14px;
+}
+
+#dialog input:not([type="checkbox"]):hover {
+    box-shadow: 0 1px 8px #d6d6d6;
+}
+
+#dialog input:not([type="checkbox"]):focus {
+    outline: none;
+    border: 1px solid #dddddd;
+    box-shadow: 0 1px 8px #d6d6d6;
+}
+
+#dialog input:not([type="checkbox"])::placeholder {
+    color: #b4b4b4;
+}
+
+#read {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+#dialog input[type="checkbox"] {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#submit {
+    align-self: flex-end;
+    border: 1px solid #b7b7b7;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+#submit:hover {
+    background-color: #e9e9e9;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+#dialog.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    gap: 20px;
+}
+
+.book {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    box-shadow: 0 0 5px #b9b9b9;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px 30px;
+}
+
+.book h1 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #454545;
+}
+
+.book h2 {
+    font-size: 22px;
+    font-weight: 400;
+    color: #454545;
+}
+
+.book h3 {
+    font-size: 19px;
+    font-weight: 300;
+    color: #454545;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.status {
+    display: flex;
+    gap: 15px;
+    position: absolute;
+    right: 50px;
+    font-size: 18px;
+    color: #454545;
+}
+
+.status input {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.close {
+    height: 25px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.close:hover {
+    scale: 1.1;
+}
+
